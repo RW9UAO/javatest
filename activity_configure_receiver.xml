@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfigureReceiver">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-93dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <!--LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"-->
+
+            <TextView
+                android:id="@+id/StatusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/reread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="Read" />
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="Save" />
+
+            <!--RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="76dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Link" /-->
+
+            <!--/LinearLayout-->
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:id="@+id/TextViewMAC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="MAC:" />
+            <TextView
+                android:id="@+id/TextViewMACv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:id="@+id/TextViewHID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="HID:" />
+            <TextView
+                android:id="@+id/TextViewHIDv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/TextViewSID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="SID:" />
+            <TextView
+                android:id="@+id/TextViewSIDv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"/>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/TextView111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="UART types:" />
+
+            <Spinner
+                android:id="@+id/uart_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/TextView112"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:text="auto BIND time:" />
+
+            <Spinner
+                android:id="@+id/autobind_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:layout_weight="1" />
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

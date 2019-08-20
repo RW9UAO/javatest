@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">OrangeRX configurator</string>
+
+    <string name="ble_uuid">00002900-0000-1000-8000-00805f9b34fb</string>
+
+    <string-array name="uart_types_array">
+        <item>SBUS, usual</item>
+        <item>SBUS inverted</item>
+        <item>FPORT, frsky</item>
+        <item>IBUS flysky</item>
+        <item>Spektrum 2048</item>
+    </string-array>
+    <string-array name="autobind_types_array">
+        <item>disabled</item>
+        <item>10 seconds</item>
+        <item>30 seconds</item>
+        <item>60 seconds</item>
+        <item>120 seconds</item>
+    </string-array>
+
+</resources>
