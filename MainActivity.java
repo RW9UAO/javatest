@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
@@ -12,9 +15,13 @@ import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.ParcelUuid;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +33,21 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,10 +55,16 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.UUID;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.R.layout.simple_list_item_1;
 import static android.bluetooth.BluetoothAdapter.ACTION_REQUEST_ENABLE;
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
 import static android.util.Log.d;
 import static android.util.Log.e;
 import static java.lang.String.format;
@@ -58,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     String MACaddress;
 //    Handler h;
 
-    @SuppressLint("HandlerLeak")
+//    @SuppressLint("HandlerLeak")
     private final Handler h = new Handler() {
         @Override
         public void handleMessage(android.os.Message msg) {
@@ -86,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.status)),
                 ((ListView) findViewById(R.id.devices))
         );
-/*
+
+        /*
         // Initializes Bluetooth adapter.
         final BluetoothManager bluetoothManager =
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
@@ -101,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
         l = new Logic();
 
-        requestPermissions(new String[]{ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION},
+        requestPermissions(new String[]{ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION, WRITE_EXTERNAL_STORAGE},
                 PERMISSION_REQUEST_COARSE_LOCATION);
 
         w.switchBle.setOnClickListener(view -> {
@@ -308,4 +337,6 @@ public class MainActivity extends AppCompatActivity {
             return value;
         }
     }
+
+
 }

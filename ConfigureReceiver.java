@@ -354,10 +354,15 @@ public class ConfigureReceiver extends AppCompatActivity {
             }
             if(StateMachine == 5){//STATE_SEND_GETH
                 if(rawData[0] == (byte)'H'){
-                    TextViewHIDv.setText(s.substring(1));
+                    String hid = s.substring(1);
+                    // remove spaces
+                    hid = hid.replaceAll("\\s", "");
+                    TextViewHIDv.setText(hid);
                     have_HID = true;
                     StateMachine = STATE_IDLE;
                     h.sendEmptyMessage(STATE_IDLE);
+                    // look for update
+                    new webtool().execute(hid);
                 }
             }
             if(StateMachine == 6){//STATE_SEND_GETS
